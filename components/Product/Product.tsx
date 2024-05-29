@@ -9,15 +9,17 @@ type Props = {
     product:Product
 }
 
-const SingleProduct:React.FC<Props>=  ({product}) => {
- 
-    return <div className='bg-blue-50 py-8 px-8 min-h-screen' >
-            <div className="py-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                    <Image src="/test.avif" alt={product.title} width={275} height={200}  className='object-cover rounded'/>
+console.log(1)
+//const SingleProduct:React.FC<{product:Product}> = ({product})=> {};
+//const SingleProduct:React.FC = ({product}:Product)=> {}; //not valid. since we cannot destructure it from Products
+//const SingleProduct = ({product}:{product:Product})=>{};
+
+const SingleProduct:React.FC<Props>=  ({product}:Props) => {
+    return <div >
+                    <Image src={"/test.avif"} alt={product.title} width={275} height={200}  className='object-cover rounded'/>
                     <p className="font-semibold overflow-hidden line-clamp-1">{product.title}</p>
                     <p className='font-semibold text-sm py-2'>${product.price}</p>
                     <Button>Add to Cart</Button>
-                </div>
             </div>
 
 }

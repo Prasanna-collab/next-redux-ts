@@ -4,11 +4,15 @@ import { Minus, Plus } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import {handleDecrement, handelIncrement} from "@/store/slices/counterSlice"
 import { RootState } from '@/store/store';
+import { Product } from '@/types/interfaces/products';
+import { ICartItem } from '@/store/slices/cartSlice';
 
 
-interface Props { }
+interface Props {
+  product: ICartItem
+ }
 
-const Counter = () => {
+const Counter:React.FC<Props> = ({product}:Props) => {
 
 const dispatch = useDispatch();
 const counterState = useSelector((state: RootState)=> state.counter);
